@@ -106,8 +106,10 @@
   </nav>
 
   <div class="navbar navbar-toggleable-md navbar-light">
-    <div class="container btn-annot-outline">
+    <nav class="container btn-annot-outline">
       <button type="button" class="btn btn-annot" data-toggle="modal" data-target="#annotModal04">04</button>
+
+      <div class="sr-only" id="main-nav">Main Menu</div>
 
       <a href="../" class="navbar-brand">
         <img class="avatar-img" src="../images/a11y-logo-2.png" alt="Logo Accessibility">
@@ -116,34 +118,33 @@
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
               data-target="#navbarSupportedContent">
         <span class="navbar-toggler-icon"></span>
+        <span class="sr-only">Toggle navigation</span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
         <div class="mr-auto">
-          <div class="navbar-nav">
-            <div class="nav-item active">
+          <ul class="navbar-nav" aria-labelledby="main-nav">
+            <li class="nav-item active">
               <button type="button" class="btn btn-annot" data-toggle="modal" data-target="#annotModal06">
                 06
               </button>
               <a class="nav-link btn-annot-outline" href="../good-bad/home.html" id="main-menu">Home</a>
-              <div class="pagination pagination-navbar">
-                <div class="page-item"><a class="page-link" href="../good-bad/home.html">Good</a></div>
-                <div class="page-item"><a class="page-link active"
-                                          href="../good-bad/home-bad.html">Bad</a>
-                </div>
-              </div>
-            </div>
-            <div class="nav-item">
+              <ul class="pagination pagination-navbar">
+                <li class="page-item"><a class="page-link" href="../good-bad/home.html">Good</a></li>
+                <li class="page-item"><a class="page-link active" href="../good-bad/home-bad.html">Bad</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="../good-bad/article.html">Article</a>
-            </div>
-            <div class="nav-item">
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="../good-bad/media.html">Media</a>
-            </div>
-            <div class="nav-item">
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="../../good-bad/request.html">Request</a>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
 
         <div class="navbar-form form-inline my-2 my-lg-0 btn-annot-outline">
@@ -151,21 +152,24 @@
           <form class="m-0 mr-4" role="search">
             <button type="button" class="btn btn-annot" data-toggle="modal" data-target="#annotModal04">04
             </button>
-            <input class="form-control form-control-search mr-2 btn-annot-outline" type="text"
-                   placeholder="Type term...">
+
+            <label for="search">Search</label>
+            <input class="form-control form-control-search mr-2 btn-annot-outline" type="text" id="search">
             <button type="button" class="btn btn-annot btn-annot-search" data-toggle="modal"
                     data-target="#annotModal07">07
             </button>
             <button class="btn btn-tertiary search-button my-sm-0 ml-0 p-1" type="submit">
-              <img src="../images/icon-search.png">
+              <span class="icon icon-search icon-lg text-orange" aria-hidden="true"></span>
+              <span class="sr-only">Search</span>
             </button>
           </form>
 
           <div class="font-reset">
             <div class="d-inline-block p-relative">
+              <label for="language">Language</label>
               <select class="form-control btn-annot-outline" name="language" id="language">
                 <option value="english" selected>English</option>
-                <option value="nederlands">Nederlands</option>
+                <option value="nederlands" lang="nl">Nederlands</option>
               </select>
               <button type="button" class="btn btn-annot" data-toggle="modal" data-target="#annotModal05">
                 05
@@ -177,7 +181,7 @@
 
       </div>
 
-    </div>
+    </nav>
   </div>
 
 </header>
@@ -649,17 +653,17 @@
 
             <pre class="highlight">
 <code class="html">
-<div id="header">
+<header role="banner">
   <div id="logo">...</div>
-  <div id="navigation">
+  <nav id="navigation">
     <ul>
       <li>Payments</li>
       <li>Savings</li>
       <li>Mortgages</li>
     </ul>
-    <div id="search">...<input type="text"/>...</div>
-  </div>
-</div>
+    <form role="search">...<input type="text"/>...</form>
+  </nav>
+</header>
 <main role="main">
   <h1>COMPANY NAME</h1>
   ...
@@ -747,10 +751,10 @@
 
   <!-- Within the Document -->
 
-<option value="nederlands">Nederlands</option>
+<option value="nederlands" lang="nl">Nederlands</option>
 
 <p>While in Spain, my friend tried to speak Spanish, but she wasn't very good.
-Everyone kept saying "No comprendo nada de lo que dices."</p>
+  Everyone kept saying "<span lang="es">No comprendo nada de lo que dices.</span>"</p>
 
 </code>
 </pre>
@@ -801,7 +805,7 @@ Everyone kept saying "No comprendo nada de lo que dices."</p>
               <li>No relationship between and status for menu present</li>
               <li>No text alternative present for functional icon</li>
               <li>Menu not marked up with a list and no nested relationsship present</li>
-              <li>No indication of current / active link</span>
+              <li>No indication of current / active link</li>
             </ul>
 
             <div class="alert alert-info">
